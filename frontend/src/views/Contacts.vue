@@ -265,67 +265,46 @@ const contacts = computed(() => {
 });
 
 onMounted(async () => {
-  // In a real app, you would fetch this data from your API
-  // For this example, we'll use mock data
-  const mockContacts: Contact[] = [
-    {
-      id: 1,
-      name: "John Smith",
-      position: "Manager",
-      company: "ABC Corp",
-      email: "john@abccorp.com",
-      phone: "123-456-7890",
-      notes: "Key contact",
-      owner_id: 1,
-      created_at: "2023-01-01T00:00:00Z",
-    },
-    {
-      id: 2,
-      name: "Jane Doe",
-      position: "Director",
-      company: "XYZ Inc",
-      email: "jane@xyz.com",
-      phone: "098-765-4321",
-      notes: "Decision maker",
-      owner_id: 1,
-      created_at: "2023-01-02T00:00:00Z",
-    },
-    {
-      id: 3,
-      name: "Bob Wilson",
-      position: "Sales Rep",
-      company: "123 Ltd",
-      email: "bob@123.com",
-      phone: "555-123-4567",
-      notes: "New contact",
-      owner_id: 2,
-      created_at: "2023-01-03T00:00:00Z",
-    },
-    {
-      id: 4,
-      name: "Alice Johnson",
-      position: "CFO",
-      company: "Finance Co",
-      email: "alice@finance.com",
-      phone: "555-987-6543",
-      notes: "Financial contact",
-      owner_id: 2,
-      created_at: "2023-01-04T00:00:00Z",
-    },
-    {
-      id: 5,
-      name: "Charlie Brown",
-      position: "CEO",
-      company: "Tech Solutions",
-      email: "charlie@tech.com",
-      phone: "555-456-7890",
-      notes: "Executive contact",
-      owner_id: 1,
-      created_at: "2023-01-05T00:00:00Z",
-    },
-  ];
+  // If the data store has no contacts (e.g., not populated from staticData), seed mock contacts.
+  if (!dataStore.allContacts || dataStore.allContacts.length === 0) {
+    const mockContacts: Contact[] = [
+      {
+        id: 1,
+        name: "John Smith",
+        position: "Manager",
+        company: "ABC Corp",
+        email: "john@abccorp.com",
+        phone: "123-456-7890",
+        notes: "Key contact",
+        owner_id: 1,
+        created_at: "2023-01-01T00:00:00Z",
+      },
+      {
+        id: 2,
+        name: "Jane Doe",
+        position: "Director",
+        company: "XYZ Inc",
+        email: "jane@xyz.com",
+        phone: "098-765-4321",
+        notes: "Decision maker",
+        owner_id: 1,
+        created_at: "2023-01-02T00:00:00Z",
+      },
+      {
+        id: 3,
+        name: "Bob Wilson",
+        position: "Sales Rep",
+        company: "123 Ltd",
+        email: "bob@123.com",
+        phone: "555-123-4567",
+        notes: "New contact",
+        owner_id: 2,
+        created_at: "2023-01-03T00:00:00Z",
+      },
+    ];
 
-  dataStore.setContacts(mockContacts);
+    dataStore.setContacts(mockContacts);
+  }
 });
 
 const openAddContactModal = () => {

@@ -1,5 +1,4 @@
 <!-- src/views/Items.vue -->
-<!-- src/views/Items.vue -->
 <template>
   <div class="p-8">
     <div class="flex items-center justify-between mb-6">
@@ -204,19 +203,30 @@ const selectedSize = ref("All");
 
 const newItem = ref({ name: "", size: "13cm", stock: 0, price: "" });
 const items = ref<Array<any>>([]);
+const storeItems = computed(() => dataStore.allItems);
 
 onMounted(() => {
-  // Mock data inspired by screenshot
-  items.value = [
-    { id: 1, name: "ឈើ", size: "13cm", stock: 200, price: "$10" },
-    { id: 2, name: "ឈើប្រណិត", size: "13cm", stock: 200, price: "$12" },
-    { id: 3, name: "រុក្ខជាតិ", size: "13cm", stock: 100, price: "$8" },
-    { id: 4, name: "ក្រូមសុី", size: "13cm", stock: 100, price: "$9" },
-    { id: 5, name: "សំបក", size: "18cm", stock: 100, price: "$11" },
-    { id: 6, name: "រុក្ខជាតិ", size: "22cm", stock: 50, price: "$14" },
-    { id: 7, name: "ផ្ទះ", size: "25cm", stock: 50, price: "$16" },
-    { id: 8, name: "សំបក", size: "30cm", stock: 0, price: "$7" },
-  ];
+  // Prefer items already present in the data store (populated from staticData in DEV),
+  // otherwise use local mock and mirror into the store so other pages can access it.
+  if (storeItems.value && storeItems.value.length > 0) {
+    items.value = storeItems.value as any[];
+  } else {
+    // local mock (kept similar to previous mock)
+    items.value = [
+      { id: 1, name: "ผ้าพันคอ", size: "13cm", stock: 200, price: "$10" },
+      { id: 2, name: "เสื้อผ้า", size: "13cm", stock: 200, price: "$12" },
+      { id: 3, name: "ตะกร้า", size: "13cm", stock: 100, price: "$8" },
+      { id: 4, name: "หมอน", size: "13cm", stock: 100, price: "$9" },
+      { id: 5, name: "ของขวัญ", size: "18cm", stock: 100, price: "$11" },
+      { id: 6, name: "ของตกแต่ง", size: "22cm", stock: 50, price: "$14" },
+      { id: 7, name: "ของเล่น", size: "25cm", stock: 50, price: "$16" },
+      { id: 8, name: "แก้วน้ำ", size: "30cm", stock: 0, price: "$7" },
+    ];
+
+    if (typeof dataStore.setItems === "function") {
+      dataStore.setItems(items.value as any[]);
+    }
+  }
 
   // Mirror into data store so other parts of app can access
   if (typeof dataStore.setItems === "function") {

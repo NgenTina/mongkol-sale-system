@@ -1,6 +1,7 @@
 // src/stores/data.ts
 import { defineStore } from "pinia";
 import type { Item, Customer, Order, Contact, DashboardData } from "@/types";
+import staticData from "@/data/staticData";
 
 interface DataState {
   items: Item[];
@@ -12,11 +13,14 @@ interface DataState {
 
 export const useDataStore = defineStore("data", {
   state: (): DataState => ({
-    items: [],
-    customers: [],
-    orders: [],
-    contacts: [],
-    dashboardData: null,
+    // When developing locally, populate the store with static mock data to avoid needing the backend.
+    items: import.meta.env.DEV ? (staticData.items as Item[]) : [],
+    customers: import.meta.env.DEV ? (staticData.customers as Customer[]) : [],
+    orders: import.meta.env.DEV ? (staticData.orders as Order[]) : [],
+    contacts: import.meta.env.DEV ? (staticData.contacts as Contact[]) : [],
+    dashboardData: import.meta.env.DEV
+      ? (staticData.dashboardData as DashboardData)
+      : null,
   }),
 
   getters: {

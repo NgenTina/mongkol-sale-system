@@ -520,135 +520,143 @@ const items = computed(() => dataStore.allItems);
 
 onMounted(async () => {
   // In a real app, you would fetch this data from your API
-  // For this example, we'll use mock data
-  const mockCustomers: Customer[] = [
-    {
-      id: 1,
-      name: "John Doe",
-      email: "john@example.com",
-      phone: "123-456-7890",
-      address: "123 Main St",
-      notes: "Regular customer",
-      created_at: "2023-01-01T00:00:00Z",
-    },
-    {
-      id: 2,
-      name: "Jane Smith",
-      email: "jane@example.com",
-      phone: "098-765-4321",
-      address: "456 Oak Ave",
-      notes: "VIP customer",
-      created_at: "2023-01-02T00:00:00Z",
-    },
-    {
-      id: 3,
-      name: "Bob Johnson",
-      email: "bob@example.com",
-      phone: "555-123-4567",
-      address: "789 Pine Rd",
-      notes: "New customer",
-      created_at: "2023-01-03T00:00:00Z",
-    },
-  ];
+  // Prefer data already present in the store (populated from staticData in DEV).
+  if (!dataStore.allCustomers || dataStore.allCustomers.length === 0) {
+    const mockCustomers: Customer[] = [
+      {
+        id: 1,
+        name: "John Doe",
+        email: "john@example.com",
+        phone: "123-456-7890",
+        address: "123 Main St",
+        notes: "Regular customer",
+        created_at: "2023-01-01T00:00:00Z",
+      },
+      {
+        id: 2,
+        name: "Jane Smith",
+        email: "jane@example.com",
+        phone: "098-765-4321",
+        address: "456 Oak Ave",
+        notes: "VIP customer",
+        created_at: "2023-01-02T00:00:00Z",
+      },
+      {
+        id: 3,
+        name: "Bob Johnson",
+        email: "bob@example.com",
+        phone: "555-123-4567",
+        address: "789 Pine Rd",
+        notes: "New customer",
+        created_at: "2023-01-03T00:00:00Z",
+      },
+    ];
 
-  const mockItems: Item[] = [
-    {
-      id: 1,
-      name: "Laptop",
-      price: 999.99,
-      stock: 10,
-      category: "Electronics",
-      description: "High-performance laptop",
-      owner_id: 1,
-      created_at: "2023-01-01T00:00:00Z",
-    },
-    {
-      id: 2,
-      name: "T-Shirt",
-      price: 19.99,
-      stock: 50,
-      category: "Clothing",
-      description: "Comfortable cotton t-shirt",
-      owner_id: 1,
-      created_at: "2023-01-02T00:00:00Z",
-    },
-    {
-      id: 3,
-      name: "Novel",
-      price: 14.99,
-      stock: 25,
-      category: "Books",
-      description: "Bestselling novel",
-      owner_id: 2,
-      created_at: "2023-01-03T00:00:00Z",
-    },
-    {
-      id: 4,
-      name: "Plant Pot",
-      price: 24.99,
-      stock: 15,
-      category: "Home & Garden",
-      description: "Ceramic plant pot",
-      owner_id: 2,
-      created_at: "2023-01-04T00:00:00Z",
-    },
-    {
-      id: 5,
-      name: "Toy Car",
-      price: 29.99,
-      stock: 30,
-      category: "Toys",
-      description: "Die-cast toy car",
-      owner_id: 1,
-      created_at: "2023-01-05T00:00:00Z",
-    },
-  ];
+    dataStore.setCustomers(mockCustomers);
+  }
 
-  const mockOrders: Order[] = [
-    {
-      id: 1,
-      customer_id: 1,
-      status: "delivered",
-      total: 999.99,
-      created_at: "2023-01-10T10:30:00Z",
-      items: [{ id: 1, order_id: 1, item_id: 1, quantity: 1 }],
-      customer_name: "John Doe",
-      customer_email: "john@example.com",
-      customer_phone: "123-456-7890",
-      customer_address: "123 Main St",
-      items_count: 1,
-    },
-    {
-      id: 2,
-      customer_id: 2,
-      status: "shipped",
-      total: 39.98,
-      created_at: "2023-01-11T14:20:00Z",
-      items: [{ id: 2, order_id: 2, item_id: 2, quantity: 2 }],
-      customer_name: "Jane Smith",
-      customer_email: "jane@example.com",
-      customer_phone: "098-765-4321",
-      customer_address: "456 Oak Ave",
-      items_count: 2,
-    },
-    {
-      id: 3,
-      customer_id: 3,
-      status: "confirmed",
-      total: 14.99,
-      created_at: "2023-01-12T09:15:00Z",
-      items: [{ id: 3, order_id: 3, item_id: 3, quantity: 1 }],
-      customer_name: "Bob Johnson",
-      customer_email: "bob@example.com",
-      customer_phone: "555-123-4567",
-      customer_address: "789 Pine Rd",
-      items_count: 1,
-    },
-  ];
+  if (!dataStore.allItems || dataStore.allItems.length === 0) {
+    const mockItems: Item[] = [
+      {
+        id: 1,
+        name: "Laptop",
+        price: 999.99,
+        stock: 10,
+        category: "Electronics",
+        description: "High-performance laptop",
+        owner_id: 1,
+        created_at: "2023-01-01T00:00:00Z",
+      },
+      {
+        id: 2,
+        name: "T-Shirt",
+        price: 19.99,
+        stock: 50,
+        category: "Clothing",
+        description: "Comfortable cotton t-shirt",
+        owner_id: 1,
+        created_at: "2023-01-02T00:00:00Z",
+      },
+      {
+        id: 3,
+        name: "Novel",
+        price: 14.99,
+        stock: 25,
+        category: "Books",
+        description: "Bestselling novel",
+        owner_id: 2,
+        created_at: "2023-01-03T00:00:00Z",
+      },
+      {
+        id: 4,
+        name: "Plant Pot",
+        price: 24.99,
+        stock: 15,
+        category: "Home & Garden",
+        description: "Ceramic plant pot",
+        owner_id: 2,
+        created_at: "2023-01-04T00:00:00Z",
+      },
+      {
+        id: 5,
+        name: "Toy Car",
+        price: 29.99,
+        stock: 30,
+        category: "Toys",
+        description: "Die-cast toy car",
+        owner_id: 1,
+        created_at: "2023-01-05T00:00:00Z",
+      },
+    ];
 
-  dataStore.setCustomers(mockCustomers);
-  dataStore.setItems(mockItems);
-  dataStore.setOrders(mockOrders);
+    dataStore.setItems(mockItems);
+  }
+
+  if (!dataStore.allOrders || dataStore.allOrders.length === 0) {
+    const mockOrders: Order[] = [
+      {
+        id: 1,
+        customer_id: 1,
+        status: "delivered",
+        total: 999.99,
+        created_at: "2023-01-10T10:30:00Z",
+        items: [{ id: 1, order_id: 1, item_id: 1, quantity: 1 }],
+        customer_name: "John Doe",
+        customer_email: "john@example.com",
+        customer_phone: "123-456-7890",
+        customer_address: "123 Main St",
+        items_count: 1,
+      },
+      {
+        id: 2,
+        customer_id: 2,
+        status: "shipped",
+        total: 39.98,
+        created_at: "2023-01-11T14:20:00Z",
+        items: [{ id: 2, order_id: 2, item_id: 2, quantity: 2 }],
+        customer_name: "Jane Smith",
+        customer_email: "jane@example.com",
+        customer_phone: "098-765-4321",
+        customer_address: "456 Oak Ave",
+        items_count: 2,
+      },
+      {
+        id: 3,
+        customer_id: 3,
+        status: "confirmed",
+        total: 14.99,
+        created_at: "2023-01-12T09:15:00Z",
+        items: [{ id: 3, order_id: 3, item_id: 3, quantity: 1 }],
+        customer_name: "Bob Johnson",
+        customer_email: "bob@example.com",
+        customer_phone: "555-123-4567",
+        customer_address: "789 Pine Rd",
+        items_count: 1,
+      },
+    ];
+
+    dataStore.setOrders(mockOrders);
+  }
 });
 
 const getStatusClass = (status: string) => {

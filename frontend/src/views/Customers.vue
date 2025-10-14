@@ -231,57 +231,41 @@ const form = ref({
 const customers = computed(() => dataStore.allCustomers);
 
 onMounted(async () => {
-  // In a real app, you would fetch this data from your API
-  // For this example, we'll use mock data
-  const mockCustomers: Customer[] = [
-    {
-      id: 1,
-      name: "John Doe",
-      email: "john@example.com",
-      phone: "123-456-7890",
-      address: "123 Main St",
-      notes: "Regular customer",
-      created_at: "2023-01-01T00:00:00Z",
-    },
-    {
-      id: 2,
-      name: "Jane Smith",
-      email: "jane@example.com",
-      phone: "098-765-4321",
-      address: "456 Oak Ave",
-      notes: "VIP customer",
-      created_at: "2023-01-02T00:00:00Z",
-    },
-    {
-      id: 3,
-      name: "Bob Johnson",
-      email: "bob@example.com",
-      phone: "555-123-4567",
-      address: "789 Pine Rd",
-      notes: "New customer",
-      created_at: "2023-01-03T00:00:00Z",
-    },
-    {
-      id: 4,
-      name: "Alice Brown",
-      email: "alice@example.com",
-      phone: "555-987-6543",
-      address: "321 Elm Blvd",
-      notes: "Frequent buyer",
-      created_at: "2023-01-04T00:00:00Z",
-    },
-    {
-      id: 5,
-      name: "Charlie Wilson",
-      email: "charlie@example.com",
-      phone: "555-456-7890",
-      address: "654 Maple Ln",
-      notes: "Corporate client",
-      created_at: "2023-01-05T00:00:00Z",
-    },
-  ];
+  // Prefer store-provided customers (populated from staticData in DEV).
+  if (!dataStore.allCustomers || dataStore.allCustomers.length === 0) {
+    // In a real app you'd fetch from API. For now seed with mock data.
+    const mockCustomers: Customer[] = [
+      {
+        id: 1,
+        name: "John Doe",
+        email: "john@example.com",
+        phone: "123-456-7890",
+        address: "123 Main St",
+        notes: "Regular customer",
+        created_at: "2023-01-01T00:00:00Z",
+      },
+      {
+        id: 2,
+        name: "Jane Smith",
+        email: "jane@example.com",
+        phone: "098-765-4321",
+        address: "456 Oak Ave",
+        notes: "VIP customer",
+        created_at: "2023-01-02T00:00:00Z",
+      },
+      {
+        id: 3,
+        name: "Bob Johnson",
+        email: "bob@example.com",
+        phone: "555-123-4567",
+        address: "789 Pine Rd",
+        notes: "New customer",
+        created_at: "2023-01-03T00:00:00Z",
+      },
+    ];
 
-  dataStore.setCustomers(mockCustomers);
+    dataStore.setCustomers(mockCustomers);
+  }
 });
 
 const openAddCustomerModal = () => {
