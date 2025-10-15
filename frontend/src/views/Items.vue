@@ -5,7 +5,7 @@
       <h1 class="text-3xl font-extrabold text-gray-800">Items</h1>
       <button
         @click="openAddItemModal"
-        class="px-5 py-2 rounded-lg bg-orange-600 text-white shadow hover:bg-orange-700"
+        class="px-5 py-2 rounded-lg bg-orange-600 text-white shadow hover:bg-orange-700 kantumruy-pro-regular"
       >
         ដាក់ទំនិញថ្មី
       </button>
@@ -44,7 +44,7 @@
               v-for="p in uniqueProducts"
               :key="p"
               @click="selectProduct(p)"
-              class="cursor-pointer text-sm font-semibold hover:text-orange-600"
+              class="cursor-pointer text-sm font-semibold hover:text-orange-600 kantumruy-pro-regular"
             >
               {{ p }}
             </li>
@@ -114,7 +114,7 @@
             :key="item.id"
             class="border-t border-gray-200 hover:bg-gray-50"
           >
-            <td class="px-8 py-4 font-semibold text-gray-800">
+            <td class="px-8 py-4 font-semibold text-gray-800 kantumruy-pro-regular">
               {{ item.name }}
             </td>
             <td class="px-8 py-4 text-gray-700">{{ item.size }}</td>
