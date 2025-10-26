@@ -1,0 +1,57 @@
+{
+    
+    "components": {
+        "navbar": {
+            "navTitle": "ប្រព័ន្ធលក់ មង្គល",
+            "logOutButton": "ចាកចេញ"
+        },
+        "sidebar": {
+            "welcomeMessage": "សូមស្វាគមន៍មកកាន់ប្រព័ន្ធលក់ មង្គល!",
+            "sidebarNavigation": {
+                "dashboard": "ផ្ទាំងគ្រប់គ្រង",
+                "items": "ទំនិញ",
+                "orders": "ការកម្ម៉ង់ទិញ",
+                "customers": "អតិថិជន",
+                "settings": "ការកំណត់",
+                "contacts": "ទំនាក់ទំនង",
+                "profile": "ប្រវត្តិរូប"
+            }
+        }
+    },
+    "pages": {
+        "dashboard": {
+            "title": "ផ្ទាំងគ្រប់គ្រង",
+            "welcomeMessage": "សូមស្វាគមន៍មកកាន់ផ្ទាំងគ្រប់គ្រងរបស់អ្នក!"
+        },
+        "itemsPage": {
+            "title": "ទំនិញ",
+            "addItemButton": "បន្ថែមទំនិញថ្មី",
+            "filterByProduct": "តម្រៀបតាមផលិតផល",
+            "filterBySize": "តម្រៀបតាមទំហំ",
+            "table": {
+                "header": {
+                    "itemName": "ឈ្មោះទំនិញ",
+                    "product": "ផលិតផល",
+                    "size": "ទំហំ",
+                    "price": "តម្លៃ",
+                    "stock": "ស្តុក",
+                    "status": "ស្ថានភាព"
+                }
+            },
+            "addItemModal": {
+                "title": "បន្ថែមទំនិញថ្មី",
+                "name": "ឈ្មោះទំនិញ",
+                "size": "ទំហំ",
+                "stock": "ស្តុក",
+                "price": "តម្លៃ",
+                "saveButton": "រក្សាទុក",
+                "cancelButton": "បោះបង់"
+            }
+        },
+        "authPage": {
+            "title": "ចូលទៅកាន់ប្រព័ន្ធលក់ មង្គល",
+            "welcome": "សូមស្វាគមន៍មកកាន់ប្រព័ន្ធលក់ មង្គល!",
+            "signInButton": "ចូល"
+        }
+    }
+}

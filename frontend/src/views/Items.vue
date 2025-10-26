@@ -2,12 +2,14 @@
 <template>
   <div class="p-8">
     <div class="flex items-center justify-between mb-6">
-      <h1 class="text-3xl font-extrabold text-gray-800">Items</h1>
+      <h1 class="text-3xl font-extrabold text-gray-800">
+        {{ $t("pages.itemsPage.title") }}
+      </h1>
       <button
         @click="openAddItemModal"
         class="px-5 py-2 rounded-lg bg-orange-600 text-white shadow hover:bg-orange-700 kantumruy-pro-regular"
       >
-        ដាក់ទំនិញថ្មី
+        {{ $t("pages.itemsPage.addItemButton") }}
       </button>
     </div>
 
@@ -18,7 +20,9 @@
           @click="toggleProductMenu"
           class="flex items-center gap-2 px-4 py-2 rounded-full bg-yellow-50 text-gray-800 shadow"
         >
-          <span class="text-sm font-medium">Products</span>
+          <span class="text-sm font-medium">{{
+            $t("pages.itemsPage.filterByProduct")
+          }}</span>
           <svg
             class="w-4 h-4"
             fill="none"
@@ -57,7 +61,9 @@
           @click="toggleSizeMenu"
           class="flex items-center gap-2 px-4 py-2 rounded-full bg-yellow-50 text-gray-800 shadow"
         >
-          <span class="text-sm font-medium">Size</span>
+          <span class="text-sm font-medium">{{
+            $t("pages.itemsPage.filterBySize")
+          }}</span>
           <svg
             class="w-4 h-4"
             fill="none"
@@ -101,11 +107,21 @@
       <table class="min-w-full">
         <thead class="bg-transparent">
           <tr class="text-left text-sm text-gray-600">
-            <th class="px-8 py-6">Products</th>
-            <th class="px-8 py-6">Size</th>
-            <th class="px-8 py-6">Stock</th>
-            <th class="px-8 py-6">Price</th>
-            <th class="px-8 py-6">Status</th>
+            <th class="px-8 py-6">
+              {{ $t("pages.itemsPage.table.header.product") }}
+            </th>
+            <th class="px-8 py-6">
+              {{ $t("pages.itemsPage.table.header.size") }}
+            </th>
+            <th class="px-8 py-6">
+              {{ $t("pages.itemsPage.table.header.stock") }}
+            </th>
+            <th class="px-8 py-6">
+              {{ $t("pages.itemsPage.table.header.price") }}
+            </th>
+            <th class="px-8 py-6">
+              {{ $t("pages.itemsPage.table.header.status") }}
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -114,7 +130,9 @@
             :key="item.id"
             class="border-t border-gray-200 hover:bg-gray-50"
           >
-            <td class="px-8 py-4 font-semibold text-gray-800 kantumruy-pro-regular">
+            <td
+              class="px-8 py-4 font-semibold text-gray-800 kantumruy-pro-regular"
+            >
               {{ item.name }}
             </td>
             <td class="px-8 py-4 text-gray-700">{{ item.size }}</td>
@@ -143,28 +161,30 @@
       class="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-40 p-4"
     >
       <div class="bg-white rounded-lg w-full max-w-lg p-6">
-        <h3 class="text-lg font-bold mb-4">Add Item</h3>
+        <h3 class="text-lg font-bold mb-4">
+          {{ $t("pages.itemsPage.addItemButton") }}
+        </h3>
         <form @submit.prevent="addMockItem">
           <div class="grid grid-cols-2 gap-4">
             <input
               v-model="newItem.name"
-              placeholder="Product name"
+              :placeholder="$t('pages.itemsPage.addItemModal.name')"
               class="border p-2 rounded"
             />
             <input
               v-model="newItem.size"
-              placeholder="Size (e.g. 13cm)"
+              :placeholder="$t('pages.itemsPage.addItemModal.size')"
               class="border p-2 rounded"
             />
             <input
               v-model.number="newItem.stock"
               type="number"
-              placeholder="Stock"
+              :placeholder="$t('pages.itemsPage.addItemModal.stock')"
               class="border p-2 rounded"
             />
             <input
               v-model="newItem.price"
-              placeholder="Price"
+              :placeholder="$t('pages.itemsPage.addItemModal.price')"
               class="border p-2 rounded"
             />
           </div>
@@ -174,13 +194,13 @@
               @click="closeModal"
               class="px-4 py-2 rounded bg-gray-200"
             >
-              Cancel
+              {{ $t("pages.itemsPage.addItemModal.cancelButton") }}
             </button>
             <button
               type="submit"
               class="px-4 py-2 rounded bg-orange-600 text-white"
             >
-              Save
+              {{ $t("pages.itemsPage.addItemModal.saveButton") }}
             </button>
           </div>
         </form>

@@ -1,12 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Moul&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Bokor&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Siemreap&display=swap');
+
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
 
 /* Kantumruy Pro */
 
 .kantumruy-pro-regular {
   font-family: "Kantumruy Pro", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 400;
+  font-weight: 500;
   font-style: normal;
 }
 
@@ -31,27 +36,99 @@
   font-style: italic;
 }
 
-/* Moul */
-
-.moul-regular {
-  font-family: "Moul", serif;
+/* Bokor */
+.bokor-regular {
+  font-family: "Bokor", serif;
   font-weight: 400;
   font-style: normal;
 }
 
-.moul-bold {
-  font-family: "Moul", serif;
+.bokor-bold {
+  font-family: "Bokor", serif;
   font-weight: 700;
   font-style: normal;
 }
-.moul-italic {
-  font-family: "Moul", serif;
+
+.bokor-italic {
+  font-family: "Bokor", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+.bokor-bold-italic {
+  font-family: "Bokor", serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+/* Siemreap */
+.siemreap-regular {
+  font-family: "Siemreap", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Libre Baskerville */
+.libre-baskerville-regular {
+  font-family: "Libre Baskerville", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.libre-baskerville-bold {
+  font-family: "Libre Baskerville", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.libre-baskerville-italic {
+  font-family: "Libre Baskerville", serif;
   font-weight: 400;
   font-style: italic;
 }
 
-.moul-bold-italic {
-  font-family: "Moul", serif;
+.libre-baskerville-bold-italic {
+  font-family: "Libre Baskerville", serif;
   font-weight: 700;
   font-style: italic;
+}
+
+/* Rubik */
+.rubik-regular {
+  font-family: "Rubik", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.rubik-bold {
+  font-family: "Rubik", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* ===== ENGLISH ===== */
+.lang-en {
+  --font-body: "Rubik", serif;
+  --font-heading: "Playfair Display", sans-serif;
+}
+
+/* ===== KHMER ===== */
+.lang-kh {
+  --font-body: "Kantumruy Pro", sans-serif;
+  --font-heading: "Siemreap", sans-serif;
+}
+
+/* Apply globally */
+body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  transition: font-family 0.25s ease; /* smooth font switch */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
 }

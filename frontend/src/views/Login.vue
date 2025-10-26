@@ -6,10 +6,10 @@
     <div class="max-w-md w-full space-y-8">
       <div>
         <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
-          Sign in to Mongkol Sale System
+          {{ t("pages.authPage.title") }}
         </h2>
         <p class="mt-2 text-center text-sm text-gray-600">
-          Welcome to Mongkol sale system!
+          {{ t("pages.authPage.welcome") }}
         </p>
       </div>
       <form class="mt-8 space-y-6" @submit.prevent="handleLogin">
@@ -82,12 +82,17 @@
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 import { useAuthStore } from "@/stores/auth";
+import { useI18n } from "vue-i18n";
+
+import "../locales/en.json";
+import "../locales/kh.json";
 
 interface LoginForm {
   email: string;
   password: string;
 }
 
+const { t } = useI18n();
 const router = useRouter();
 const authStore = useAuthStore();
 

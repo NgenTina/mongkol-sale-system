@@ -20,6 +20,10 @@ module.exports = {
           800: '#92400e',
           900: '#7c2d12',
         }
+      },
+       fontFamily: {
+        body: ['var(--font-body)'],
+        heading: ['var(--font-heading)'],
       }
     },
   },

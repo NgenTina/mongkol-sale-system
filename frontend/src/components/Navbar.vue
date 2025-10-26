@@ -23,14 +23,16 @@
             </svg>
           </button>
           <div class="flex-shrink-0 flex items-center">
-            <h1 class="text-xl font-bold text-orange-600">
-              Mongkol Sale System
+            <h1 class="text-xl font-bold font-heading text-orange-600">
+              {{ $t("components.navbar.navTitle") }}
             </h1>
           </div>
         </div>
         <div class="flex items-center">
           <div class="ml-3 relative">
             <div class="flex items-center space-x-4">
+              <!-- Language Switcher -->
+              <LanguageSwitcher />
               <span class="text-sm font-medium text-gray-700">
                 {{ user?.name }}
               </span>
@@ -43,7 +45,7 @@
                 @click="logout"
                 class="ml-4 px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-md hover:bg-red-700 focus:outline-none"
               >
-                Logout
+                {{ $t("components.navbar.logOutButton") }}
               </button>
             </div>
           </div>
@@ -57,6 +59,7 @@
 import { computed } from "vue";
 import { useRouter } from "vue-router";
 import { useAuthStore } from "@/stores/auth";
+import LanguageSwitcher from "./LanguageSwitcher.vue";
 
 const emit = defineEmits<{
   (e: "toggle-sidebar"): void;
@@ -76,4 +79,5 @@ const logout = () => {
   authStore.logout();
   router.push("/login");
 };
+
 </script>

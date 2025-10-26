@@ -44,49 +44,23 @@ export const useAuthStore = defineStore("auth", {
      * If your backend uses a different path or shape, adjust `apiBase` or the parsing below.
      */
     async signIn(email: string, password: string) {
-      const apiBase = (import.meta as any).env.VITE_API_URL || "";
+      const mockUser: User = {
+        id: 1,
+        name: "John Doe",
+        email: "johndoe@example.com",
+        role: "admin",
+      };
 
-      // Try the common /auth/login route first
-      const url = `${apiBase}/auth/login`;
+      const mockToken = btoa(JSON.stringify(mockUser)); // Encode user data as a mock token
 
-      try {
-        const res = await fetch(url, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ email, password }),
-        });
+      // Simulate a delay for the mock API call
+      await new Promise((resolve) => setTimeout(resolve, 500));
 
-        if (!res.ok) {
-          // attempt to read json error message, fall back to statusText
-          let errMsg = res.statusText;
-          try {
-            const errJson = await res.json();
-            errMsg =
-              errJson.detail || errJson.message || JSON.stringify(errJson);
-          } catch (e) {
-            // ignore
-          }
-          throw new Error(errMsg || "Login failed");
-        }
-
-        const data = await res.json();
-
-        // Accept multiple token shapes
-        const token =
-          data.access_token || data.token || data?.data?.token || null;
-        const user = data.user || (data.access_token ? data : data);
-
-        if (!token) {
-          // Maybe the backend returned the user directly and token is created client-side
-          // or this is a simple mock - try to fallback to a token field or throw.
-          throw new Error("No token returned from server");
-        }
-
-        this.setAuth(user as User, token);
-        return user as User;
-      } catch (err) {
-        // Backend login failed or is not implemented; rethrow so caller can show an error
-        throw err;
+      if (email === "johndoe@example.com" && password === "password123") {
+        this.setAuth(mockUser, mockToken);
+        return mockUser;
+      } else {
+        throw new Error("Invalid email or password");
       }
     },
 

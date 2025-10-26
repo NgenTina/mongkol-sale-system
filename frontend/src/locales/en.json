@@ -1,0 +1,56 @@
+{
+    "components": {
+        "navbar": {
+            "navTitle": "Mongkol Sale System",
+            "logOutButton": "Log Out"
+        },
+        "sidebar": {
+            "welcomeMessage": "Welcome to Mongkol sale system!",
+            "sidebarNavigation": {
+                "dashboard": "Dashboard",
+                "items": "Items",
+                "orders": "Orders",
+                "customers": "Customers",
+                "settings": "Settings",
+                "contacts": "Contacts",
+                "profile": "Profile"
+            }
+        }
+    },
+    "pages": {
+        "dashboard": {
+            "title": "Dashboard",
+            "welcomeMessage": "Welcome to your dashboard!"
+        },
+        "itemsPage": {
+            "title": "Items",
+            "addItemButton": "Add New Item",
+            "filterByProduct": "Filter by Product",
+            "filterBySize": "Filter by Size",
+            "table": {
+                "header": {
+                    "itemName": "Item Name",
+                    "product": "Product",
+                    "size": "Size",
+                    "price": "Price",
+                    "stock": "Stock",
+                    "status": "Status"
+                }
+            },
+            "addItemModal": {
+                "title": "Add New Item",
+                "name": "Item Name",
+                "size": "Size",
+                "stock": "Stock",
+                "price": "Price",
+                "saveButton": "Save",
+                "cancelButton": "Cancel"
+            }
+        },
+        "authPage": {
+            "title": "Sign in to Mongkol Sale System",
+            "welcome": "Welcome to Mongkol sale system!",
+            "signInButton": "Sign In"
+        }
+    }
+}
