@@ -8,6 +8,7 @@
         "sidebar": {
             "welcomeMessage": "សូមស្វាគមន៍មកកាន់ប្រព័ន្ធលក់ មង្គល!",
             "sidebarNavigation": {
+                "home": "ទំព័រដើម",
                 "dashboard": "ផ្ទាំងគ្រប់គ្រង",
                 "items": "ទំនិញ",
                 "orders": "ការកម្ម៉ង់ទិញ",
@@ -19,10 +20,16 @@
         }
     },
     "pages": {
-        "dashboard": {
-            "title": "ផ្ទាំងគ្រប់គ្រង",
-            "welcomeMessage": "សូមស្វាគមន៍មកកាន់ផ្ទាំងគ្រប់គ្រងរបស់អ្នក!"
+        "homePage": {
+            "title": "ទំព័រដើម",
+            "welcomeMessage": "សូមស្វាគមន៍ត្រឡប់មកវិញ, ",
+            "dashboard": {
+                "title": "ផ្ទាំងគ្រប់គ្រង",
+                "welcomeMessage": "សូមស្វាគមន៍មកកាន់ផ្ទាំងគ្រប់គ្រងរបស់អ្នក!"
+            },
+            "quickAccess": "ចូលប្រើរហ័ស"
         },
+        
         "itemsPage": {
             "title": "ទំនិញ",
             "addItemButton": "បន្ថែមទំនិញថ្មី",

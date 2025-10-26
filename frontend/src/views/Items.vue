@@ -20,9 +20,9 @@
           @click="toggleProductMenu"
           class="flex items-center gap-2 px-4 py-2 rounded-full bg-yellow-50 text-gray-800 shadow"
         >
-          <span class="text-sm font-medium">{{
-            $t("pages.itemsPage.filterByProduct")
-          }}</span>
+          <span class="text-sm font-medium">  
+            {{$t("pages.itemsPage.filterByProduct")}}
+          </span>
           <svg
             class="w-4 h-4"
             fill="none"
@@ -61,9 +61,9 @@
           @click="toggleSizeMenu"
           class="flex items-center gap-2 px-4 py-2 rounded-full bg-yellow-50 text-gray-800 shadow"
         >
-          <span class="text-sm font-medium">{{
-            $t("pages.itemsPage.filterBySize")
-          }}</span>
+          <span class="text-sm font-medium">
+            {{ $t("pages.itemsPage.filterBySize") }}
+          </span>
           <svg
             class="w-4 h-4"
             fill="none"

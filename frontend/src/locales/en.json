@@ -7,6 +7,7 @@
         "sidebar": {
             "welcomeMessage": "Welcome to Mongkol sale system!",
             "sidebarNavigation": {
+                "home": "Home",
                 "dashboard": "Dashboard",
                 "items": "Items",
                 "orders": "Orders",
@@ -18,9 +19,14 @@
         }
     },
     "pages": {
-        "dashboard": {
-            "title": "Dashboard",
-            "welcomeMessage": "Welcome to your dashboard!"
+        "homePage": {
+            "title": "Home Page",
+            "welcomeMessage": "Welcome back, ",
+            "dashboard": {
+                "title": "Dashboard",
+                "welcomeMessage": "Welcome to your dashboard!"
+            },
+            "quickAccess": "Quick Access"
         },
         "itemsPage": {
             "title": "Items",

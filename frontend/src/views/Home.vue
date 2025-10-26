@@ -2,8 +2,12 @@
 <template>
   <div class="p-6">
     <div class="mb-8">
-      <h1 class="text-2xl font-bold text-gray-800">Dashboard</h1>
-      <p class="text-gray-600">Welcome back, {{ user?.name }}!</p>
+      <h1 class="text-2xl font-bold text-gray-800">
+        {{ $t("pages.homePage.dashboard.title") }}
+      </h1>
+      <p class="text-gray-600">
+        {{ $t("pages.homePage.dashboard.welcomeMessage") }} {{ user?.name }}!
+      </p>
     </div>
 
     <!-- Dashboard Cards -->
@@ -37,7 +41,9 @@
 
     <!-- Quick Access Buttons -->
     <div class="bg-white p-6 rounded-lg shadow">
-      <h2 class="text-xl font-semibold text-gray-800 mb-4">Quick Access</h2>
+      <h2 class="text-xl font-semibold text-gray-800 mb-4">
+        {{ $t("pages.homePage.quickAccess") }}
+      </h2>
       <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
         <router-link
           to="/items"
@@ -58,7 +64,7 @@
               />
             </svg>
           </div>
-          <span class="text-sm font-medium">Items</span>
+          <span class="text-sm font-medium">{{ $t("components.sidebar.sidebarNavigation.items") }}</span>
         </router-link>
 
         <router-link
@@ -80,7 +86,7 @@
               />
             </svg>
           </div>
-          <span class="text-sm font-medium">Customers</span>
+          <span class="text-sm font-medium">{{ $t("components.sidebar.sidebarNavigation.customers") }}</span>
         </router-link>
 
         <router-link
@@ -102,7 +108,7 @@
               />
             </svg>
           </div>
-          <span class="text-sm font-medium">Orders</span>
+          <span class="text-sm font-medium">{{ $t("components.sidebar.sidebarNavigation.orders") }}</span>
         </router-link>
 
         <router-link
@@ -124,7 +130,9 @@
               />
             </svg>
           </div>
-          <span class="text-sm font-medium">Contacts</span>
+          <span class="text-sm font-medium">
+            {{ $t("components.sidebar.sidebarNavigation.contacts") }}
+          </span>
         </router-link>
 
         <router-link
@@ -146,7 +154,9 @@
               />
             </svg>
           </div>
-          <span class="text-sm font-medium">Profile</span>
+          <span class="text-sm font-medium">
+            {{ $t("components.sidebar.sidebarNavigation.profile") }}
+          </span>
         </router-link>
       </div>
     </div>

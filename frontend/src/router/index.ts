@@ -12,7 +12,9 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: "/",
-    redirect: "/items",
+    name: "Home",
+    component: () => import("@/views/Home.vue"),
+    meta: { requiresAuth: false },
   },
   {
     path: "/items",
